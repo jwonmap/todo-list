@@ -1,20 +1,19 @@
 const TodoProgress = ({ todos }) => {
-    const completedTodos = todos.filter((todo) => todo.isCompleted);
-    const completedCount = completedTodos.length;
-    const allCount = todos.length;
-    const progressRatio = (completedCount / allCount) * 100;
+  const completedCount = todos.filter((todo) => todo.completed).length;
+  const allCount = todos.length;
+  const progress = Math.floor((completedCount / allCount) * 100);
 
-    if (allCount === 0) {
-        return null;
-    }
+  if (allCount === 0) {
+    return null;
+  }
 
-    return (
-        <div className="todoProgress">
-            <div>{completedCount} / {allCount}</div>
-            <progress value={progressRatio} max="100" />
-            <div>{Math.floor(progressRatio)}%</div>
-        </div>
-    );
+  return (
+    <div className="todoProgress">
+      <div>{`${completedCount} / ${allCount}`}</div>
+      <progress value={progress} max="100" />
+      <div>{`${Math.floor(progress)}%`}</div>
+    </div>
+  );
 };
 
 export default TodoProgress;
