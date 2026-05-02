@@ -16,7 +16,7 @@ const TodoInput = ({ onCreate }) => {
       <button
         onClick={() => {
           if (text.length === 0) {
-            alert("할 일은 비워둘 수 없습니다!");
+            alert("텍스트를 입력해주세요!");
 
             return;
           }
